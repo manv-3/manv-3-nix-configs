@@ -40,4 +40,4 @@ chmod +x ~/.config/hypr/scripts/toggle_qs_dots.sh
 ---
 
 ## Disclaimer : Not all work here is mine. These dotfiles and configurations are inspired by and adapted from various open-source ricing projects across the community. This repository serves as a personal backup of my favorite shells.
-  ──────
+  ──────# manv-3-nix-configs

@@ -4,7 +4,7 @@ A clean, modular collection of Quickshell desktop shells for Hyprland and Waylan
 
 ---
 
-##For Wallpapers visit -
+## For Wallpapers visit: [manv-3-wallpapers](https://github.com/manv-3/manv-3-wallpapers)
 
 ## Quick Setup
 
@@ -39,7 +39,17 @@ chmod +x ~/.config/hypr/scripts/toggle_qs_dots.sh
   quickshell -p ~/.config/quickshell/<shell-name>/shell.qml
   ```
 
+### Wallpapers
+
+The shells look for wallpapers in `~/Pictures/Wallpapers` (or `~/.config/wallpapers`). You can clone the companion wallpaper collection:
+
+```bash
+git clone https://github.com/manv-3/manv-3-wallpapers.git ~/Pictures/Wallpapers
+ln -sf ~/Pictures/Wallpapers ~/.config/wallpapers
+```
+
 ---
 
-## Disclaimer : Not all work here is mine. These dotfiles and configurations are inspired by and adapted from various open-source ricing projects across the community. This repository serves as a personal backup of my favorite shells.
-  ──────# manv-3-nix-configs
+## Disclaimer
+
+Not all work here is mine. These dotfiles and configurations are inspired by and adapted from various open-source ricing projects across the community. This repository serves as a personal backup of my favorite shells.

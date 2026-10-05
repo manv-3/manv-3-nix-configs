@@ -146,9 +146,7 @@ show_rofi_menu() {
             lucid)              label="lucid              │ 🫧 Lucid Glass Shell" ;;
             cartoon-shell)      label="cartoon-shell      │ 🎨 Cartoon Cyber Shell" ;;
             synoptik)           label="synoptik           │ 📊 Synoptik Dashboard Shell" ;;
-            nibrasshell)        label="nibrasshell        │ 🌌 Nibras Futuristic Shell" ;;
             11)                 label="11                 │ 🖥️ Windows 11 Shell" ;;
-            macduo)             label="macduo             │ 🍏 macOS Duo Shell" ;;
             hyprland-minions)   label="hyprland-minions   │ 👾 Minions Dynamic Island" ;;
             zesis)              label="zesis              │ 🪐 Zesis Celestial Shell" ;;
             Q1)                 label="Q1                 │ ⚡ Q1 Quick Bar" ;;

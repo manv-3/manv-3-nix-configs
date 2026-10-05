@@ -1,0 +1,15 @@
+# Logs & caches
+*.log
+*.qslog
+*.tmp
+*.bak
+.cache/
+__pycache__/
+*.pyc
+
+# OS & Editor debris
+.DS_Store
+.directory
+.vscode/
+.idea/
+.qtcreator/

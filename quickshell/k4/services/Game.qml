@@ -290,9 +290,9 @@ Singleton {
             return ""
         const cuanto = reto.tipo === "oleada" ? mejorOleada
             : reto.tipo === "nivel" ? nivelMaximo : (cuentas[reto.tipo] || 0)
-        const como = { oleada: "llega a la oleada", muertes: "derrota a",
-                       jefes: "derrota a", cofres: "abre", nivel: "alcanza el nivel" }
-        const que = { muertes: " monstruos", jefes: " jefes", cofres: " cofres" }
+        const como = { oleada: Idioma.t("llega a la oleada"), muertes: Idioma.t("derrota a"),
+                       jefes: Idioma.t("derrota a"), cofres: Idioma.t("abre"), nivel: Idioma.t("alcanza el nivel") }
+        const que = { muertes: Idioma.t(" monstruos"), jefes: Idioma.t(" jefes"), cofres: Idioma.t(" cofres") }
         return (como[reto.tipo] || "") + " " + reto.meta + (que[reto.tipo] || "")
             + "  (" + Math.min(cuanto, reto.meta) + "/" + reto.meta + ")"
     }
@@ -1302,7 +1302,7 @@ Singleton {
                 const base = enemigoVidaBase * Math.pow(enemigoVidaCrec, oleada - 1)
                 for (let k = 0; k < 2; ++k) {
                     const cual = faunaPorBioma[bioma][(oleada + k) % faunaPorBioma[bioma].length]
-                    const esp = especies[cual] || ({ nombre: "Bicho", vida: 1, daño: 1 })
+                    const esp = especies[cual] || ({ nombre: Idioma.t("Bicho"), vida: 1, daño: 1 })
                     e.push({
                         vida: base * 0.8, vidaMax: base * 0.8,
                         daño: enemigoDañoBase * Math.pow(enemigoDañoCrec, oleada - 1) * 0.7,

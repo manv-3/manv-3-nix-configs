@@ -314,7 +314,7 @@ FadeIn {
 
                             IslandLabel {
                                 visible: fila.modelData.aur
-                                text: "AUR"
+                                text: Idioma.t("AUR")
                                 font.pixelSize: 9
                                 color: Theme.yellow
                             }

@@ -119,15 +119,15 @@ RowLayout {
                         // que hay que decidir. Se ocultan las que estén a cero
                         // para que un tanque puro no arrastre columnas vacías.
                         model: [
-                            { e: "fís",  v: Game.cifra(tarjeta.stats.daño),
+                            { e: Idioma.t("fís"),  v: Game.cifra(tarjeta.stats.daño),
                               c: "#ff9f0a", ver: tarjeta.stats.daño >= 1 },
-                            { e: "mág",  v: Game.cifra(tarjeta.stats.dañoMag),
+                            { e: Idioma.t("mág"),  v: Game.cifra(tarjeta.stats.dañoMag),
                               c: "#bf5af2", ver: tarjeta.stats.dañoMag >= 1 },
-                            { e: "vida", v: Game.cifra(tarjeta.stats.vida),
+                            { e: Idioma.t("vida"), v: Game.cifra(tarjeta.stats.vida),
                               c: Theme.green, ver: true },
-                            { e: "arm",  v: Game.cifra(tarjeta.stats.armadura),
+                            { e: Idioma.t("arm"),  v: Game.cifra(tarjeta.stats.armadura),
                               c: "#6ccce4", ver: tarjeta.stats.armadura >= 1 },
-                            { e: "res",  v: Game.cifra(tarjeta.stats.resistencia),
+                            { e: Idioma.t("res"),  v: Game.cifra(tarjeta.stats.resistencia),
                               c: "#5ac8fa", ver: tarjeta.stats.resistencia >= 1 }
                         ]
 

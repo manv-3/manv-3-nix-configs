@@ -328,7 +328,50 @@ Singleton {
         if (s.armadura) partes.push("+" + s.armadura + " " + Idioma.t("arm"))
         if (s.resistencia) partes.push("+" + s.resistencia + " " + Idioma.t("resist"))
         if (s.cura) partes.push("+" + s.cura + " " + Idioma.t("cura"))
-        if (s.recorte) partes.push("-" + s.recorte + "% recarga")
+        if (s.recorte) partes.push("-" + s.recorte + "% " + Idioma.t("recarga"))
         return partes.join(" · ")
+    }
+
+    readonly property var diccionarioTipos: ({
+        "Espada": "Sword", "Hacha": "Axe", "Bastón": "Staff", "Arco": "Bow", "Daga": "Dagger",
+        "Escudo": "Shield", "Tomo": "Tome", "Orbe": "Orb", "Carcaj": "Quiver", "Broquel": "Buckler",
+        "Yelmo": "Helm", "Coraza": "Breastplate", "Guantes": "Gloves", "Botas": "Boots", "Capa": "Cloak",
+        "Anillo": "Ring", "Amuleto": "Amulet", "Talismán": "Talisman", "Cinto": "Belt", "Relicario": "Reliquary"
+    })
+
+    readonly property var diccionarioPrefijos: ({
+        "roto": "Broken", "rota": "Broken", "rotos": "Broken", "rotas": "Broken",
+        "tosco": "Crude", "tosca": "Crude", "toscos": "Crude", "toscas": "Crude",
+        "sólido": "Solid", "sólida": "Solid", "sólidos": "Solid", "sólidas": "Solid",
+        "afilado": "Sharp", "afilada": "Sharp", "afilados": "Sharp", "afiladas": "Sharp",
+        "feroz": "Fierce", "feroces": "Fierce",
+        "rúnico": "Runic", "rúnica": "Runic", "rúnicos": "Runic", "rúnicas": "Runic",
+        "sagrado": "Sacred", "sagrada": "Sacred", "sagrados": "Sacred", "sagradas": "Sacred",
+        "abisal": "Abyssal", "abisales": "Abyssal",
+        "estelar": "Stellar", "estelares": "Stellar",
+        "eterno": "Eternal", "eterna": "Eternal", "eternos": "Eternal", "eternas": "Eternal"
+    })
+
+    readonly property var diccionarioSufijos: ({
+        "del lobo": "of the Wolf", "del oso": "of the Bear", "del águila": "of the Eagle",
+        "de la sombra": "of the Shadow", "del titán": "of the Titan", "de la aurora": "of the Aurora",
+        "del vacío": "of the Void", "del dragón": "of the Dragon", "de los ancestros": "of the Ancestors",
+        "del cosmos": "of the Cosmos"
+    })
+
+    function nombre(objeto) {
+        if (!objeto) return ""
+        if (!Idioma.traduciendo) return objeto.nombre || ""
+        const partes = (objeto.nombre || "").split(" ")
+        if (partes.length >= 3) {
+            const tipoEs = partes[0]
+            const prefEs = partes[1]
+            const sufEs = partes.slice(2).join(" ")
+            const tipoEn = diccionarioTipos[tipoEs] || tipoEs
+            const prefEn = diccionarioPrefijos[prefEs] || prefEs
+            const sufEn = diccionarioSufijos[sufEs] || sufEs
+            return prefEn + " " + tipoEn + " " + sufEn
+        }
+        return objeto.nombre || ""
     }
 }

@@ -304,8 +304,8 @@ K4Plugin {
         if (q.length > 0) {
             const installEntry = {
                 isInstall: true,
-                name: "Instalar «" + query.trim() + "»",
-                genericName: "Buscar en los repos oficiales y AUR",
+                name: Idioma.f(Idioma.t("Instalar «%1»"), query.trim()),
+                genericName: Idioma.t("Buscar en los repos oficiales y AUR"),
                 icon: ""
             }
 

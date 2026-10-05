@@ -96,7 +96,7 @@ Item {
             K4.Etiqueta {
                 anchors.verticalCenter: parent.verticalCenter
                 visible: Digivice.vigor > 0
-                text: "\u{F141F}×" + Digivice.vigor
+                text: Idioma.t("\u{F141F}×") + Digivice.vigor
                 font.pixelSize: 11
                 color: "#e8b45a"
             }

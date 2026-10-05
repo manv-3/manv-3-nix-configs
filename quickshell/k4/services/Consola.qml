@@ -52,7 +52,7 @@ Singleton {
     //  cierre con el error a medio leer. En la island sobra —la sesión se
     //  queda ahí— y encima estorbaría: dejaría la terminal esperando un Intro.
     readonly property string cierre: usaIsla
-        ? "" : " printf '\\nPulsa Enter para cerrar…'; read _;"
+        ? "" : (" printf '\\n" + Idioma.t("Pulsa Enter para cerrar…") + "'; read _;")
 
     //  ── una conexión en marcha ────────────────────────────────────
     //

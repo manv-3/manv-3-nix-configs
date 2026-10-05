@@ -514,13 +514,13 @@ K4Plugin {
     //  deducir los momentos del propio rastro, por los reposos del cursor.
     K4.Atajo {
         name: "clic"
-        description: "Marca un clic izquierdo en el rastro de la grabación"
+        description: Idioma.t("Marca un clic izquierdo en el rastro de la grabación")
         onPressed: Captura.marcarClic(1)
     }
 
     K4.Atajo {
         name: "clicDerecho"
-        description: "Marca un clic derecho en el rastro de la grabación"
+        description: Idioma.t("Marca un clic derecho en el rastro de la grabación")
         onPressed: Captura.marcarClic(3)
     }
 

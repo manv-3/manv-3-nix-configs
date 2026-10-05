@@ -10,7 +10,7 @@ Rectangle {
     id: fila
 
     property var objeto: null
-    property string vacio: "vacío"
+    property string vacio: Idioma.t("vacío")
     property bool activo: true
     signal pulsado()
     signal secundario()
@@ -63,7 +63,7 @@ Rectangle {
 
             IslandLabel {
                 text: (fila.objeto && !Game.algunoPuede(fila.objeto) ? "🔒 " : "")
-                    + (fila.objeto ? fila.objeto.nombre : fila.vacio)
+                    + (fila.objeto ? Items.nombre(fila.objeto) : fila.vacio)
                 color: fila.rareza ? fila.rareza.color : Theme.dim
                 font.pixelSize: 11
                 font.weight: fila.objeto && fila.objeto.rareza >= 3 ? Font.DemiBold : Font.Normal

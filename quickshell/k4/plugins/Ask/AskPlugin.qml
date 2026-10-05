@@ -190,18 +190,18 @@ K4Plugin {
 
         // el preámbulo solo en el primer turno: después ya vive en la sesión
         let prompt = threadId.length === 0
-            ? "Eres un asistente rápido integrado en la barra del escritorio. "
-                + "Responde en español, breve y directo. Puedes usar markdown sencillo: "
-                + "negrita, cursiva, código y enlaces. Nada de tablas ni encabezados. "
-                + "No ejecutes comandos ni leas archivos salvo que la pregunta lo pida explícitamente.\n\n"
-                + "Pregunta: " + question
+            ? "You are a quick assistant integrated into the desktop bar. "
+                + "Answer in English, concise and direct. You can use simple markdown: "
+                + "bold, italics, code and links. No tables or headings. "
+                + "Do not run commands or read files unless the question explicitly asks for it.\n\n"
+                + "Question: " + question
             : question
 
         if (selection.length > 0)
-            prompt += "\n\nTexto que el usuario tiene seleccionado en pantalla:\n" + selection
+            prompt += "\n\nText that the user currently has selected on screen:\n" + selection
 
         if (image.length > 0)
-            prompt += "\n\nSe adjunta una captura de la pantalla del usuario."
+            prompt += "\n\nA screenshot of the user's screen is attached."
 
         // vía wrapper: necesita cerrar stdin, si no `codex exec` se cuelga
         // esperando EOF (Quickshell le deja el pipe abierto)
@@ -274,7 +274,7 @@ K4Plugin {
         } else if (event.type === "turn.failed" || event.type === "error") {
             status = "error"
             updateLastMessage("error",
-                event.error && event.error.message ? event.error.message : "Codex devolvió un error.")
+                event.error && event.error.message ? event.error.message : Idioma.t("Codex devolvió un error."))
         } else if (event.type === "turn.completed") {
             if (status === "thinking")
                 status = ""
@@ -360,7 +360,7 @@ K4Plugin {
                 self.status = "error"
                 self.updateLastMessage("error", self.lastError.length > 0
                     ? self.lastError
-                    : "Codex terminó con código " + code + " y sin respuesta.")
+                    : Idioma.f(Idioma.t("Codex terminó con código %1 y sin respuesta."), code))
             } else if (self.status === "thinking") {
                 self.status = ""
                 //  Apartada mientras pensaba: avisar de que ya está, que para

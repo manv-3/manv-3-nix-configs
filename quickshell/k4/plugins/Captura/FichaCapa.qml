@@ -564,7 +564,7 @@ ColumnLayout {
         Repeater {
             model: Editor.capaSel && Editor.capaSel.tipo === "texto"
                 ? [{ campo: "color", nombre: Idioma.t("Color del texto") },
-                   { campo: "colorFondo", nombre: Idioma.t("Color del estilo") }]
+                   { campo: Idioma.t("colorFondo"), nombre: Idioma.t("Color del estilo") }]
                 : Editor.capaSel && Editor.capaSel.tipo === "forma"
                 ? [{ campo: "color", nombre: Idioma.t("Color") }]
                 : []
@@ -1192,11 +1192,11 @@ ColumnLayout {
                 model: [
                     { k: "x", n: "X", suf: "", dec: 3 },
                     { k: "y", n: "Y", suf: "", dec: 3 },
-                    { k: "tamano", n: "Tamaño", suf: "", dec: 3 },
-                    { k: "rotacion", n: "Giro", suf: "°", dec: 1 },
-                    { k: "opacidad", n: "Opac.", suf: "", dec: 2 },
-                    { k: "t0", n: "Inicio", suf: " s", dec: 2 },
-                    { k: "t1", n: "Fin", suf: " s", dec: 2 }
+                    { k: "tamano", n: Idioma.t("Tamaño"), suf: "", dec: 3 },
+                    { k: "rotacion", n: Idioma.t("Giro"), suf: "°", dec: 1 },
+                    { k: "opacidad", n: Idioma.t("Opac."), suf: "", dec: 2 },
+                    { k: "t0", n: Idioma.t("Inicio"), suf: " s", dec: 2 },
+                    { k: "t1", n: Idioma.t("Fin"), suf: " s", dec: 2 }
                 ]
 
                 delegate: RowLayout {

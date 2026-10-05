@@ -674,7 +674,7 @@ exclusionMode: ExclusionMode.Ignore
                                 onStatusChanged: {
                                     if (status === Loader.Error)
                                         PluginManager.registrarError(
-                                            modelData.name, "No se pudo cargar la vista")
+                                            modelData.name, Idioma.t("No se pudo cargar la vista"))
                                     else if (status === Loader.Ready)
                                         PluginManager.limpiarError(modelData.name)
                                 }

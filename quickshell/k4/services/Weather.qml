@@ -83,7 +83,7 @@ Singleton {
 
     function describe(code) {
         const entry = codes[code]
-        return entry ? entry.t : "Sin datos"
+        return entry ? Idioma.t(entry.t) : Idioma.t("Sin datos")
     }
 
     // ── consultas ─────────────────────────────────────────────────
@@ -190,13 +190,13 @@ Singleton {
                 try {
                     d = JSON.parse(this.text)
                 } catch (e) {
-                    weather.error = "No se pudo situar por IP"
+                    weather.error = Idioma.t("No se pudo situar por IP")
                     weather.loading = false
                     return
                 }
 
                 if (!d.success) {
-                    weather.error = "No se pudo situar por IP"
+                    weather.error = Idioma.t("No se pudo situar por IP")
                     weather.loading = false
                     return
                 }
@@ -250,12 +250,12 @@ Singleton {
                 try {
                     d = JSON.parse(this.text)
                 } catch (e) {
-                    weather.error = "Respuesta ilegible del servicio"
+                    weather.error = Idioma.t("Respuesta ilegible del servicio")
                     return
                 }
 
                 if (!d.current) {
-                    weather.error = "Sin datos para esta ubicación"
+                    weather.error = Idioma.t("Sin datos para esta ubicación")
                     return
                 }
 

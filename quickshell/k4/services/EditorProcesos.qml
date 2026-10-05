@@ -534,7 +534,7 @@ Scope {
             procesos.renderActivo = false
             procesos.renderFallo(renderizador.ultimoError.length > 0
                 ? renderizador.ultimoError
-                : "el renderizador terminó sin avisar (código " + code + ")")
+                : Idioma.f(Idioma.t("el renderizador terminó sin avisar (código %1)"), code))
         }
     }
 

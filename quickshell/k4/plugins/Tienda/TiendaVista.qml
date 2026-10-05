@@ -253,7 +253,7 @@ FadeIn {
                         spacing: 8
 
                         IslandLabel {
-                            text: String(fila.modelData.title || fila.ident)
+                            text: Idioma.t(String(fila.modelData.title || fila.ident))
                             textFormat: Text.PlainText
                             color: Theme.ink
                             font.pixelSize: 12
@@ -489,7 +489,7 @@ FadeIn {
                     text: tienda.examen
                         ? (tienda.examen.reemplaza ? Idioma.t("Actualizar ")
                                                    : Idioma.t("Instalar "))
-                          + String(tienda.examen.plugin.title || "")
+                          + Idioma.t(String(tienda.examen.plugin.title || ""))
                         : ""
                     textFormat: Text.PlainText
                     color: Theme.ink

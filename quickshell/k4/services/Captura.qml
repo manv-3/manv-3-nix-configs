@@ -1141,7 +1141,7 @@ Singleton {
         rutaMicro = ""
         const motivo = quejaGrabador.length > 0
                 ? quejaGrabador
-                : "el grabador se cerró con el código " + codigo
+                : Idioma.f(Idioma.t("el grabador se cerró con el código %1"), codigo)
         quejaGrabador = ""
         videoFallido(motivo)
     }

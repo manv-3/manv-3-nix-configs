@@ -34,7 +34,7 @@ Singleton {
     ]
 
     // "auto" sigue al sistema; cualquier otro valor manda sobre él.
-    property string preferido: Settings.cargado ? Settings.idioma : "auto"
+    property string preferido: Settings.cargado ? Settings.idioma : "en"
 
     // ── qué idioma toca ───────────────────────────────────────────
     //  De LANG salen cosas como «es_ES.UTF-8»: interesa la parte de delante,
@@ -44,7 +44,7 @@ Singleton {
         const bruto = Quickshell.env("LC_ALL") || Quickshell.env("LC_MESSAGES")
             || Quickshell.env("LANG") || ""
         if (bruto.length === 0 || bruto.indexOf("C") === 0 || bruto.indexOf("POSIX") === 0)
-            return origen
+            return "en"
         return bruto.split(".")[0].replace("-", "_")
     }
 

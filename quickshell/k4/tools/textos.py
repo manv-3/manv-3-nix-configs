@@ -36,7 +36,7 @@ CARPETAS = ["widgets", "services", "plugins"]
 #  plantilla, así que no había forma de traducirlas ni de echarlas de menos: no
 #  salían como pendientes, salían como si no existieran.
 PROPIEDADES = ("text", "texto", "nombre", "desc", "papel", "titulo", "grupo",
-               "title")
+               "title", "label", "genericName", "description", "vacio")
 
 # Propiedades que llevan identificadores y no se traducen nunca, aunque caigan
 # dentro del bloque de un texto. Traducir un `id` rompe el programa en cuanto
@@ -183,6 +183,7 @@ def bloques_de_texto(lineas):
 
 
 def ficheros():
+    yield os.path.join(RAIZ, "shell.qml")
     for carpeta in CARPETAS:
         base = os.path.join(RAIZ, carpeta)
         for raiz, _, nombres in os.walk(base):
@@ -197,7 +198,7 @@ def ficheros():
 #  `"clave": "valor"` de un mapa de QML.
 RE_PAR = re.compile(r'"([^"\n]+)"\s*:\s*"([^"\n]*)"')
 
-RE_ENVUELTA = re.compile(r'Idioma\.t\(\s*(["\'])((?:[^"\'\\\n]|\\.)*?)\1')
+RE_ENVUELTA = re.compile(r'Idioma\.[tf]\(\s*(["\'])((?:[^"\'\\\n]|\\.)*?)\1')
 
 
 def recolectar():
@@ -245,6 +246,11 @@ def recolectar():
                 for m in RE_PAR.finditer(dentro[1].split("})")[0]):
                     if traducible(m.group(2)):
                         encontradas.setdefault(m.group(2), set()).add(rel)
+
+        if rel.endswith("services/Weather.qml"):
+            for m in re.finditer(r'\bt\s*:\s*"([^"\n]+)"', texto):
+                if traducible(m.group(1)):
+                    encontradas.setdefault(m.group(1), set()).add(rel)
     return encontradas
 
 

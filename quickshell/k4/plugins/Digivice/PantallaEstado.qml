@@ -132,7 +132,7 @@ Item {
 
             K4.Etiqueta {
                 width: parent.width
-                text: Digivice.victorias + "V / " + Digivice.derrotas + "D"
+                text: Digivice.victorias + Idioma.t("V / ") + Digivice.derrotas + "D"
                 font.pixelSize: 12
                 color: "#8fbf9c"
             }
@@ -154,7 +154,7 @@ Item {
                     const f = Digivice.ficha
                     if (!f || !f.sk || !f.sk.length) return ""
                     const n = Digivice.tecnicasAbiertas(Digivice.especie)
-                    return "▸ " + f.sk.slice(0, n).join("\n▸ ")
+                    return "▸ " + f.sk.slice(0, n).join(Idioma.t("\n▸ "))
                 }
                 font.pixelSize: 11
                 color: "#9fd8ae"

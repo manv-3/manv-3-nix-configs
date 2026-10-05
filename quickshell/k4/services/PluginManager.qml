@@ -28,26 +28,26 @@ Singleton {
     // copia mínima evita que la barra se quede sin defaults si el fichero se
     // está actualizando o si se arranca con una versión antigua instalada.
     property var catalogo: [
-        { id: "idle", title: "Píldora", version: "1.0.0", enabled: true, configurable: false },
-        { id: "volume", title: "Volumen", version: "1.0.0", enabled: true },
-        { id: "clock", title: "Reloj", version: "1.0.0", enabled: true },
-        { id: "player", title: "Reproductor", version: "1.0.0", enabled: true },
-        { id: "toast", title: "Notificación", version: "1.0.0", enabled: true },
-        { id: "panel", title: "Centro de control", version: "1.0.0", enabled: true },
-        { id: "launcher", title: "Lanzador", version: "1.0.0", enabled: true },
-        { id: "ask", title: "Preguntar", version: "1.0.0", enabled: true },
-        { id: "hyprtheme", title: "Tema de Hyprland", version: "1.0.0", enabled: true },
-        { id: "weather", title: "El tiempo", version: "1.0.0", enabled: true },
-        { id: "tray", title: "Bandeja", version: "1.0.0", enabled: true },
-        { id: "game", title: "Mazmorra", version: "1.0.0", enabled: true },
-        { id: "settings", title: "Ajustes", version: "1.0.0", enabled: true, configurable: false },
-        { id: "clipboard", title: "Portapapeles", version: "1.0.0", enabled: true },
-        { id: "system", title: "Sistema", version: "1.0.0", enabled: true },
-        { id: "files", title: "Archivos", version: "1.0.0", enabled: true },
-        { id: "keys", title: "Atajos", version: "1.0.0", enabled: true },
-        { id: "windows", title: "Ventanas", version: "1.0.0", enabled: true },
-        { id: "session", title: "Sesión", version: "1.0.0", enabled: true },
-        { id: "captura", title: "Captura", version: "1.0.0", enabled: true }
+        { id: "idle", title: Idioma.t("Píldora"), version: "1.0.0", enabled: true, configurable: false },
+        { id: "volume", title: Idioma.t("Volumen"), version: "1.0.0", enabled: true },
+        { id: "clock", title: Idioma.t("Reloj"), version: "1.0.0", enabled: true },
+        { id: "player", title: Idioma.t("Reproductor"), version: "1.0.0", enabled: true },
+        { id: "toast", title: Idioma.t("Notificación"), version: "1.0.0", enabled: true },
+        { id: "panel", title: Idioma.t("Centro de control"), version: "1.0.0", enabled: true },
+        { id: "launcher", title: Idioma.t("Lanzador"), version: "1.0.0", enabled: true },
+        { id: "ask", title: Idioma.t("Preguntar"), version: "1.0.0", enabled: true },
+        { id: "hyprtheme", title: Idioma.t("Tema de Hyprland"), version: "1.0.0", enabled: true },
+        { id: "weather", title: Idioma.t("El tiempo"), version: "1.0.0", enabled: true },
+        { id: "tray", title: Idioma.t("Bandeja"), version: "1.0.0", enabled: true },
+        { id: "game", title: Idioma.t("Mazmorra"), version: "1.0.0", enabled: true },
+        { id: "settings", title: Idioma.t("Ajustes"), version: "1.0.0", enabled: true, configurable: false },
+        { id: "clipboard", title: Idioma.t("Portapapeles"), version: "1.0.0", enabled: true },
+        { id: "system", title: Idioma.t("Sistema"), version: "1.0.0", enabled: true },
+        { id: "files", title: Idioma.t("Archivos"), version: "1.0.0", enabled: true },
+        { id: "keys", title: Idioma.t("Atajos"), version: "1.0.0", enabled: true },
+        { id: "windows", title: Idioma.t("Ventanas"), version: "1.0.0", enabled: true },
+        { id: "session", title: Idioma.t("Sesión"), version: "1.0.0", enabled: true },
+        { id: "captura", title: Idioma.t("Captura"), version: "1.0.0", enabled: true }
     ]
 
     signal cambiado(string id, bool habilitado)
@@ -512,11 +512,11 @@ Singleton {
         .filter(function (m) { return m.configurable !== false })
         .map(function (m) {
             const error = errores[m.id] || ""
-            let desc = "Activar o desactivar este plugin"
+            let desc = Idioma.t("Activar o desactivar este plugin")
             if (m.externo) {
-                desc = m.description || "Plugin de usuario"
+                desc = m.description ? Idioma.t(m.description) : Idioma.t("Plugin de usuario")
                 if (m.permisos && m.permisos.length > 0)
-                    desc += "  ·  pide: " + m.permisos.join(", ")
+                    desc += "  ·  " + Idioma.t("pide: ") + m.permisos.join(", ")
             }
             const sinRequisito = !requisitoCumplido(m)
             if (m.cargable === false)
@@ -529,7 +529,7 @@ Singleton {
                 desc = error
             return { id: "plugin_" + m.id,
                      pluginId: m.id,
-                     nombre: m.title + (m.externo ? "  ·  " + (m.version || "") : ""),
+                     nombre: Idioma.t(m.title) + (m.externo ? "  ·  " + (m.version || "") : ""),
                      desc: desc,
                      error: (m.cargable === false || sinRequisito) ? "fijo"
                           : (error.length > 0 ? "recargable" : ""),
@@ -552,7 +552,7 @@ Singleton {
         .filter(function (m) { return m.aplicacion === true })
         .map(function (m) {
             return { id: m.id,
-                     nombre: m.title || m.id,
+                     nombre: Idioma.t(m.title) || m.id,
                      imagen: m.iconoFichero ? "file://" + m.iconoFichero : "",
                      glifo: m.icono ? parseInt(m.icono, 16) : 0xF0431,
                      externo: m.externo === true,
@@ -612,6 +612,7 @@ Singleton {
             if (d.plugins && Array.isArray(d.plugins) && d.plugins.length > 0)
                 catalogo = d.plugins.map(function (m) {
                     return Object.assign({}, m, {
+                        title: Idioma.t(m.title),
                         enabled: m.enabledByDefault !== false
                     })
                 })

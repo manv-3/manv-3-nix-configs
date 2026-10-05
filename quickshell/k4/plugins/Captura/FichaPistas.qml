@@ -144,7 +144,7 @@ ColumnLayout {
                 horizontalAlignment: Text.AlignRight
                 visible: nivel !== undefined
                 text: nivel !== undefined
-                    ? nivel.pico.toFixed(1) + " dB" : ""
+                    ? nivel.pico.toFixed(1) + Idioma.t(" dB") : ""
                 color: nivel === undefined ? Theme.dim
                      : nivel.pico > -1 ? Theme.red
                      : nivel.pico > -6 ? Theme.yellow : Theme.green

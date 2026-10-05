@@ -193,7 +193,7 @@ Item {
     //  Las zzz.
     K4.Etiqueta {
         visible: self.durmiendo
-        text: "z z"
+        text: Idioma.t("z z")
         font.pixelSize: 12
         color: K4.Tema.apagado
         x: cuerpo.x + self.lado * 0.7

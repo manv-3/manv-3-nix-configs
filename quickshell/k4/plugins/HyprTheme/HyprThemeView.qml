@@ -52,10 +52,10 @@ FadeIn {
 
                 Repeater {
                     model: [
-                        { id: "tema",     label: "Tema",     glyph: Theme.ico.palette },
-                        { id: "ventanas", label: "Ventanas", glyph: Theme.ico.window },
-                        { id: "efectos",  label: "Efectos",  glyph: Theme.ico.effects },
-                        { id: "fondo",    label: "Fondo",    glyph: Theme.ico.wallpaper }
+                        { id: "tema",     label: Idioma.t("Tema"),     glyph: Theme.ico.palette },
+                        { id: "ventanas", label: Idioma.t("Ventanas"), glyph: Theme.ico.window },
+                        { id: "efectos",  label: Idioma.t("Efectos"),  glyph: Theme.ico.effects },
+                        { id: "fondo",    label: Idioma.t("Fondo"),    glyph: Theme.ico.wallpaper }
                     ]
 
                     delegate: Rectangle {
@@ -180,13 +180,13 @@ FadeIn {
                                     spacing: 1
 
                                     IslandLabel {
-                                        text: presetCard.modelData.name
+                                        text: Idioma.t(presetCard.modelData.name)
                                         font.pixelSize: 12
                                         font.weight: Font.DemiBold
                                     }
 
                                     IslandLabel {
-                                        text: presetCard.current ? "aplicado" : presetCard.modelData.from
+                                        text: presetCard.current ? Idioma.t("aplicado") : presetCard.modelData.from
                                         color: presetCard.current ? Theme.green : Theme.dim
                                         font.pixelSize: 10
                                     }
@@ -216,7 +216,7 @@ FadeIn {
 
                 IslandSlider {
                     Layout.fillWidth: true
-                    label: "Ángulo del degradado del borde"
+                    label: Idioma.t("Ángulo del degradado del borde")
                     suffix: "°"
                     from: 0
                     to: 360
@@ -235,7 +235,7 @@ FadeIn {
 
                 IslandSlider {
                     Layout.fillWidth: true
-                    label: "Separación interior entre ventanas"
+                    label: Idioma.t("Separación interior entre ventanas")
                     suffix: " px"
                     from: 0; to: 30; step: 1
                     value: view.plugin.gapsIn
@@ -244,7 +244,7 @@ FadeIn {
 
                 IslandSlider {
                     Layout.fillWidth: true
-                    label: "Separación con el borde de la pantalla"
+                    label: Idioma.t("Separación con el borde de la pantalla")
                     suffix: " px"
                     from: 0; to: 60; step: 1
                     value: view.plugin.gapsOut
@@ -253,7 +253,7 @@ FadeIn {
 
                 IslandSlider {
                     Layout.fillWidth: true
-                    label: "Grosor del borde"
+                    label: Idioma.t("Grosor del borde")
                     suffix: " px"
                     from: 0; to: 10; step: 1
                     value: view.plugin.borderSize
@@ -262,7 +262,7 @@ FadeIn {
 
                 IslandSlider {
                     Layout.fillWidth: true
-                    label: "Redondeo de esquinas"
+                    label: Idioma.t("Redondeo de esquinas")
                     suffix: " px"
                     from: 0; to: 30; step: 1
                     value: view.plugin.rounding
@@ -300,7 +300,7 @@ FadeIn {
                         Layout.fillWidth: true
                         enabled: view.plugin.blur
                         opacity: view.plugin.blur ? 1 : 0.35
-                        label: "Radio"
+                        label: Idioma.t("Radio")
                         from: 1; to: 20; step: 1
                         value: view.plugin.blurSize
                         onMoved: function (v) { view.plugin.blurSize = v; view.touched() }
@@ -310,7 +310,7 @@ FadeIn {
                         Layout.fillWidth: true
                         enabled: view.plugin.blur
                         opacity: view.plugin.blur ? 1 : 0.35
-                        label: "Pasadas"
+                        label: Idioma.t("Pasadas")
                         from: 1; to: 6; step: 1
                         value: view.plugin.blurPasses
                         onMoved: function (v) { view.plugin.blurPasses = v; view.touched() }
@@ -341,7 +341,7 @@ FadeIn {
 
                     IslandSlider {
                         Layout.fillWidth: true
-                        label: "Opacidad de la ventana activa"
+                        label: Idioma.t("Opacidad de la ventana activa")
                         from: 0.4; to: 1; step: 0.05
                         value: view.plugin.activeOpacity
                         onMoved: function (v) { view.plugin.activeOpacity = v; view.touched() }
@@ -349,7 +349,7 @@ FadeIn {
 
                     IslandSlider {
                         Layout.fillWidth: true
-                        label: "Opacidad de las inactivas"
+                        label: Idioma.t("Opacidad de las inactivas")
                         from: 0.4; to: 1; step: 0.05
                         value: view.plugin.inactiveOpacity
                         onMoved: function (v) { view.plugin.inactiveOpacity = v; view.touched() }
@@ -372,7 +372,7 @@ FadeIn {
                         Layout.fillWidth: true
                         enabled: view.plugin.animEnabled
                         opacity: view.plugin.animEnabled ? 1 : 0.35
-                        label: "Velocidad (más alto = más rápido)"
+                        label: Idioma.t("Velocidad (más alto = más rápido)")
                         from: 1; to: 10; step: 1
                         value: view.plugin.animSpeed
                         onMoved: function (v) { view.plugin.animSpeed = v; view.touched() }

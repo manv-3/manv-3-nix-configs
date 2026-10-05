@@ -140,10 +140,10 @@ ColumnLayout {
 
         Repeater {
             model: [
-                { e: "mejor oleada", v: Game.mejorOleada + "" },
-                { e: "partidas",     v: Game.partidas + "" },
-                { e: "en la bolsa",  v: Game.bolsa.length + "" },
-                { e: "cofres",       v: Game.cofres + "" }
+                { e: Idioma.t("mejor oleada"), v: Game.mejorOleada + "" },
+                { e: Idioma.t("partidas"),     v: Game.partidas + "" },
+                { e: Idioma.t("en la bolsa"),  v: Game.bolsa.length + "" },
+                { e: Idioma.t("cofres"),       v: Game.cofres + "" }
             ]
 
             delegate: ColumnLayout {

@@ -82,7 +82,7 @@ start_dot() {
             elif [[ -d "$QS_BASE/$target/api" ]]; then
                 import_path="$QS_BASE/$target/api:$import_path"
             fi
-            setsid -f bash -c "QML2_IMPORT_PATH=\"$import_path:\$QML2_IMPORT_PATH\" quickshell -p $QS_BASE/$target/shell.qml" >"$HOME/${target}.log" 2>&1
+            setsid -f bash -c "LOTUS_NOTIFICATION_SERVER=1 QML2_IMPORT_PATH=\"$import_path:\$QML2_IMPORT_PATH\" quickshell -p $QS_BASE/$target/shell.qml" >"$HOME/${target}.log" 2>&1
         fi
     fi
 }

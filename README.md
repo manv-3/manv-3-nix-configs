@@ -4,6 +4,8 @@ A clean, modular collection of Quickshell desktop shells for Hyprland and Waylan
 
 ---
 
+##For Wallpapers visit -
+
 ## Quick Setup
 
 To use these shells on a new machine or installation:

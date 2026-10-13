@@ -1,0 +1,15 @@
+[general]
+framerate = 60
+bars = 0
+bar_width = 3
+bar_spacing = 1
+
+[input]
+method = pulse
+source = auto
+
+[output]
+method = noncurses
+
+[color]
+theme = 'solarized_dark'

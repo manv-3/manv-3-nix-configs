@@ -1,0 +1,63 @@
+# Example portable NixOS configuration for Wayland & Hyprland
+{ config, pkgs, ... }:
+
+{
+  # Boot loader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Networking
+  networking.networkmanager.enable = true;
+
+  # Enable Hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  # Graphics acceleration
+  hardware.graphics.enable = true;
+
+  # Sound & Pipewire
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Essential Desktop Packages
+  environment.systemPackages = with pkgs; [
+    # Terminal & Tools
+    kitty
+    git
+    neovim
+    wget
+    curl
+    rofi
+    btop
+    
+    # Wayland Utilities
+    hyprshot
+    hypridle
+    hyprlock
+    wl-clipboard
+    slurp
+    grim
+    swappy
+    brightnessctl
+    playerctl
+    
+    # Audio Visualizer
+    cava
+  ];
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    font-awesome
+  ];
+
+  system.stateVersion = "24.11";
+}
